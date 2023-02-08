@@ -72,12 +72,12 @@ Please remember to put the CIPP-SAM user in these groups as well. It is not reco
 As CIPP is an application that touches many parts of M365 selecting the roles might be difficult. The following roles are recommended for CIPP, but you may experiment with less permissive groups at your own risk.
 
 * Application Administrator
-* User Administrator
-* Intune Administrator
-* Exchange Administrator
-* Security Administrator
 * Cloud App Security Administrator
+* Exchange Administrator
+* Intune Administrator
+* Security Administrator
 * Teams Administrator
+* User Administrator
 
 
 
