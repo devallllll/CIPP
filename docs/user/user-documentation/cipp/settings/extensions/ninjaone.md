@@ -1,8 +1,4 @@
----
-description: Configure the NinjaOne Integration
----
-
-# NinjaOne
+# Ninja One
 
 {% hint style="info" %}
 Please Note the NinjaOne CIPP integration requires NinjaOne version 5.6 or above. This will be rolling out regionally starting the end of November and going through mid-December.
@@ -18,31 +14,25 @@ The Intune Device Compliance Status utilizes Graph Webhook subscriptions and sho
 For Tenant and Device information custom fields are used. For detailed Users and License information NinjaOne Documentation is used. If you do not currently have access to NinjaOne Documentation please reach out to your account manager.
 {% endhint %}
 
-## Configuring the integration
+### Configuring the integration
 
-### Step 1 - Obtain API Credentials
+#### Step 1 - Obtain API Credentials
 
 1. First login to your NinjaOne instance as a System Administrator user.
 2. Browse to **Administration -> Apps -> API** (/#/administration/apps/api)
 3. Select Add in the top right.
-4.  Under Application Platform select API Services (machine-to-machine)\
-
-
-    <figure><img src="../../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+4. Under Application Platform select API Services (machine-to-machine)\\
 5. Fill out the details for the API Application:
    1. Enter a Name such as '**CIPP Integration**'.
    2. Leave Redirect URIs blank.
    3. Select the '**Monitoring**' and '**Management**' scopes.
    4. Select the Allowed Grant Type of '**Client Credentials**'
-   5.  Click Save in the top right.\
-
-
-       <figure><img src="../../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+   5. Click Save in the top right.\\
 6. After clicking Save make sure to save the displayed secret securely.
 7. Close the API application.
 8. In the table copy the '**Client ID**' and also save this securely.
 
-### Step 2 - Create Custom Fields
+#### Step 2 - Create Custom Fields
 
 For synchronizing Tenant and Device data into NinjaOne CIPP makes use of custom fields. These fields need to be created manually in NinjaOne. You can choose which fields you would like to populate inside NinjaOne, so if you only wish to populate certain sections that is possible.
 
@@ -64,22 +54,14 @@ To add the custom fields:
 3. Enter a label for how you wish the field to be displayed inside Ninja One.
 4. The name should be generated automatically, but you can customize this if you wish.
 5. Select the Type which matches the type for the field from the table above.
-6.  Click Create\
-
-
-    <figure><img src="../../../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+6. Click Create\\
 7. On the next screen, set the Technician Permission to '**Read Only**'
 8. Leave the Automations permission set to None. (**Note:** the exception to this is the Intune Device Compliance field, which you should set to read only, if you wish to use a condition monitor on this field)
 9. Set the API permission to Read/Write.
 10. **Optional:** For the WYSIWYG fields you can choose if you wish for them to be expanded by default in Advanced Settings
-11. Save the settings and repeat for all the fields you wish to synchronize.\
+11. Save the settings and repeat for all the fields you wish to synchronize.\\
 
-
-    <figure><img src="../../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
-
-
-### Step 3 - CIPP Settings
+#### Step 3 - CIPP Settings
 
 You should now be ready to configure settings inside CIPP
 
@@ -95,30 +77,27 @@ You should now be ready to configure settings inside CIPP
 5. Enter the Client Secret in NinjaOne API Client Secret.
 6. If you have **NinjaOne Documentation** enabled you can choose to Synchronize detailed User information and License information. This will use Documentation Templates and Apps and Services Documents to create a document for each user and license in a tenant.
 7. Select if you wish to only synchronize information on users which have a license assigned in NinjaOne toggle the '**Only Synchronize Licensed Users**' option. This will apply to both the Users summary table and the detailed user Synchronization.
-8.  Set the configuration to enabled to enable automatic synchronization once every 24 hours.\
-
-
-    <figure><img src="../../../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+8. Set the configuration to enabled to enable automatic synchronization once every 24 hours.\\
 9. Click the Set Extension Settings button.
 10. Once the settings are saved click the '**Test Extension**' you should see a message at the top of the page saying '**Successfully Connected to NinjaOne**', if you do not see this please check your API credentials and instance name.
 
-### Step 4 - Mapping CIPP to NinjaOne
+#### Step 4 - Mapping CIPP to NinjaOne
 
 After the API settings are set you can now map NinjaOne items to Microsoft 365 / CIPP Items.
 
 1. Inside CIPP select the **Extension Mappings** tab under **Settings** -> **CIPP** -> **Application Settings**
 
-#### Field Mapping
+**Field Mapping**
 
 1. Scroll down to the **NinjaOne Field Mapping Table.**
 2. For each field you wish to populate in NinjaOne select the custom field from the dropdown menu.
 3. If the field is not displayed, make sure you have configured the correct API Permissions, Definition Scope and Type in NinjaOne.
 4. Click Set Mappings
 
-#### Organization Mapping
+**Organization Mapping**
 
 1. Scroll down to the **NinjaOne Organization Mapping Table.**
-2. You have two options for mapping organizations&#x20;
+2. You have two options for mapping organizations
    * Manually pick the NinjaOne Organization from the dropdown lists and match them to the Microsoft 365 tenants. Then click the Set Mappings button.
    * Select the **Automap NinjaOne Organizations** button.
      * This will first try to match Microsoft 365 tenants where the name exactly matches in both.
@@ -126,13 +105,6 @@ After the API settings are set you can now map NinjaOne items to Microsoft 365 /
      * **NOTE:** Automapping runs in the background and can take some time. The page will need to be refreshed to see completed matches.
      * Please check the CIPP Logbook to see when this completes.
 
-### Support
+#### Support
 
 For support please visit the CIPP Discord [https://discord.gg/cyberdrain](https://discord.gg/cyberdrain)
-
-
-
-
-
-
-
