@@ -29,7 +29,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          output_location: "/out" # Tried adding as based on https://docs.cipp.app/setup/self-hosting-guide/updating#id-2.-updating-from-v6-or-older-to-v7
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
