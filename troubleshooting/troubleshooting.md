@@ -145,15 +145,14 @@ This occurs when the app has existed for more than 2 years and requires a new ce
 
 ### My costs are very high, or the application is not responsive
 
-This issue can occur when you restart the app during an important task. It's never recommended to restart the function app, and if you do unexpected results can happen. The Function Host uses something called durable functions, which when handled incorrectly can cause performance issues or increase costs due to looping tasks.
+This issue can occur when you restart the app during an important task. It's never normally recommended to manually restart the function app can cause performance issues or increase costs due to looping tasks as unexpected results can happen. The Function Host uses something called durable functions, which when handled incorrectly can cause performance issues or increase costs due to looping tasks.
 
-1. **Log In to Azure Portal**: Sign in to your Azure account at [portal.azure.com](https://portal.azure.com/).
-2. **Navigate to Storage Account**: Go to 'Storage accounts' and select the storage account that starts with 'CIPP'
-3. **Access Queues**: Inside the storage account click on Storage Explorer,
-4. **Clear Data Individually**:
-   * Delete each queue. This will automatically be recreated when required.
-   * Delete all data in the "Blobs" section as well.
-5. Restart the function app.
+1. **Log In to Azure Portal**: [portal.azure.com](https://portal.azure.com/).
+2. **Navigate to Storage Accounts**: Select the storage account that starts with **'CIPP'***
+3. **Access Queues**: Inside the storage account click on **Storage browser**,
+4. **Click on Queues**: Selete all the queues apart from "cipp-backups" and delete them, will automatically be recreated when required.
+5. **Click on Containers**   * Delete all data in the "Blobs" section, these will also be recreated as needed
+6. Navigate to the function app & restart it.
 
 This procedure can also be used to safely restart the function app when required.
 
